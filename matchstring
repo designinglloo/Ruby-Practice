@@ -1,0 +1,47 @@
+def better_match(pattern,string,posi)
+	if posi > string.length - pattern.length 
+      false
+  else
+      p = compare(pattern,string,posi)
+      if p == true
+          posi
+	    else
+          better_match(pattern,string,p-find(string[p],pattern)+1)
+      end
+  end
+
+end
+
+def compare(pattern,string,position)
+	bol = true
+        j = 0
+	while j < pattern.length && bol
+	    if string[position+j] != pattern[j]
+          bol = false
+      end
+      j = j +1
+	end
+  if bol
+     bol
+  else
+     position + j -1
+  end
+        
+end
+
+def find(pattern,string)
+	bol = false
+        j = 0
+	while j < string.length && !bol
+	    if string[j] = pattern
+          bol = true
+      end
+      j = j +1
+	end
+  if bol
+      j 
+  else
+      0
+  end
+        
+end
