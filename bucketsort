@@ -1,0 +1,33 @@
+# a は実数列
+def sort(a)
+    b = Array.new
+    for i in 0..a.length-1　　　　#計算量o(n)
+      if b[a[i]].nil?
+        b[a[i]] = 1
+      else 
+        b[a[i]]=b[a[i]]+1
+      end
+    end
+     
+    max = a[0]
+    min = a[0]
+    for i in 1..a.length-1        #計算量o(n)
+     if a[i] > max 
+          max =a[i]
+     end
+     
+     if a[i] < min
+         min = a[i]
+     end
+ 
+    end
+    
+    res = Array.new
+    for i in min..max            #計算量はmax-minによって変化する
+      if b[i].nil?.!
+        res = res + [i] * b[i]
+      end 
+    end
+    
+    res
+end
